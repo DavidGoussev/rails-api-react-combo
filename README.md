@@ -6,14 +6,19 @@ COMBO
 
   React replaces action-view, Webpack replaces sprockets, and JWT replaces sessions.
 
----------------
-
-* `package.json` contains all scripts and dependencies needed to run app
-
-* run `npm install` for first-time setup
+  <a href="http://purecss.io/">Pure CSS</a> provides the aesthetics (linked via CDN in `index.html`)
 
 ---------------
+==first-time setup
 
+* `package.json` and `Gemfile` contains all scripts and dependencies needed to run app
+
+* `webpack.config.js` ties into `webpack.dev.config.js` to prepare `bundle.js` in dev env
+
+* run `npm install` and `bundle install` for first-time setup
+
+---------------
+==to run
 
 * run `rails s` on one terminal tab
 
