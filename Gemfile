@@ -9,6 +9,7 @@ gem 'rails-api'
 gem 'puma'
 #postgres db
 gem 'pg'
-# authentication without a server session, oauth-ruby for identity & json web tokens for auth
+# authentication without a server session,
+# oauth-ruby for identity & json web tokens for auth
 gem 'oauth'
 gem 'jwt'

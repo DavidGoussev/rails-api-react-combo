@@ -20,8 +20,8 @@ COMBO
 ---------------
 ==to run
 
-* run `rails s` on one terminal tab
+* run `rails s -b 127.0.0.1` on one terminal tab (must be explicitly bound to this ip address because Twitter will not accept 'localhost' as a callback URL when utilizing our client-based, server session-free, json webtoken-enabled authentication implementation)
 
-* run `npm run devserve` in concurrent terminal tab
+* run `npm run devserve` in concurrent terminal tab (for React clientside app)
 
 * access `localhost:8080` for react clientside app, served by stateless runtime Rails backend API.
