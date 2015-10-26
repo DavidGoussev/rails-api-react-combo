@@ -26,9 +26,6 @@ module.exports = React.createClass({
       this.setState({signedIn: true, currentUser: user});
     }.bind(this));
   },
-  handleMenuClick: function() {
-    this.setState({showMenu: !this.state.showMenu});
-  },
   readFromAPI: function(url, successFunction) {
     Reqwest({
       url: url,
@@ -43,13 +40,31 @@ module.exports = React.createClass({
       }
     });
   },
+  writeToAPI: function(method, url, data, successFunction) {
+    Reqwest({
+      url: url,
+      data: data,
+      type: 'json',
+      method: method,
+      contentType: 'application/json',
+      headers: {'Authorization': sessionStorage.getItem('jwt')},
+      success: successFunction,
+      error: function(error)  {
+        console.error(url, error['response']);
+        location = '/';
+      }
+    });
+  },
+  handleMenuClick: function() {
+    this.setState({showMenu: !this.state.showMenu});
+  },
   render: function() {
     var menu = this.state.showMenu ? 'show-menu' : 'hide-menu';
     return (
       <div id="app" className={menu}>
         <Menu origin={this.props.origin} sendMenuClick={this.handleMenuClick} signedIn={this.state.signedIn} />
         <div id="content">
-          <RouteHandler origin={this.props.origin} readFromAPI={this.readFromAPI} signedIn={this.state.signedIn} />
+          <RouteHandler origin={this.props.origin} readFromAPI={this.readFromAPI} writeToAPI={this.writeToAPI} currentUser={this.state.currentUser} signedIn={this.state.signedIn} />
         </div>
       </div>
     );

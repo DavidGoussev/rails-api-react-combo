@@ -24,10 +24,13 @@ ActiveRecord::Schema.define(version: 20151024184019) do
   add_index "oauths", ["token"], name: "index_oauths_on_token", using: :btree
 
   create_table "spews", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "content",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "spews", ["user_id"], name: "index_spews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "uid",        null: false

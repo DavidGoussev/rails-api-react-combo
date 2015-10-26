@@ -5,7 +5,7 @@ module.exports = React.createClass({
   render: function() {
     var spews = this.props.data.map(function(spew) {
       return (
-        <Spew key={spew.id} content={spew.content} />
+        <Spew key={spew.id} content={spew.content} author={spew.user.handle} />
       );
     });
 

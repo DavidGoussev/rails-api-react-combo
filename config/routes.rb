@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get 'request_token', to: 'tokens#request_token'
   get 'access_token', to: 'tokens#access_token'
 
-  resources :spews, only: [:index]
+  resources :spews, only: [:index, :create, :show]
 end
