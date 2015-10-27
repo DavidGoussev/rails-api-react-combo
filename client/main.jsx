@@ -9,3 +9,6 @@ var routes = require('./config/routes.jsx');
 Router.run(routes, Router.HistoryLocation, function(Handler) {
   React.render(<Handler />, document.body);
 });
+
+
+// # main React app entry for webpack purposes, lists primary <Handler /> react-router functionality

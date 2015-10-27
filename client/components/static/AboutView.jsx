@@ -10,3 +10,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+// companion component to View, used as examplar of component-based routing under react-router <Handler />

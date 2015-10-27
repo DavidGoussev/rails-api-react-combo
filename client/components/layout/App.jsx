@@ -18,6 +18,9 @@ module.exports = React.createClass({
     var jwt = new Uri(location.search).getQueryParamValue('jwt')
     if (!!jwt) {sessionStorage.setItem('jwt', jwt);}
   },
+
+  // Uri ('jsuri') dependency parses URL for JWT value, then extracts it and sets in session storage (not localstorage, app memory or cookie)
+
   componentDidMount: function() {
     if (!!sessionStorage.getItem('jwt')) {this.currentUserFromAPI();}
   },
@@ -26,6 +29,9 @@ module.exports = React.createClass({
       this.setState({signedIn: true, currentUser: user});
     }.bind(this));
   },
+
+  // DidMount checks sessionStorage for jwt, then calls currentUserFromAPI to assign object from jwt from parsed-URL to currentUser state
+
   readFromAPI: function(url, successFunction) {
     Reqwest({
       url: url,
@@ -40,6 +46,9 @@ module.exports = React.createClass({
       }
     });
   },
+
+  // Reqwest is npm dependency used to parse json api via parameter arguments
+
   writeToAPI: function(method, url, data, successFunction) {
     Reqwest({
       url: url,
@@ -70,3 +79,8 @@ module.exports = React.createClass({
     );
   }
 });
+
+// # renders both Menu component and RouteHandler (which manages View and About as listed in routes.jsx)
+
+
+// App.jsx = primary root component of React app - main stateholder

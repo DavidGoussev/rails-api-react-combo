@@ -4,3 +4,6 @@ TWITTER = OAuth::Consumer.new(
   authorize_path: '/oauth/authenticate',
   site: 'https://api.twitter.com'
 )
+
+
+# boilerplate code to set up Twitter's Oauth (see tokens_controller for auth methodology)
